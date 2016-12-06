@@ -18,12 +18,14 @@ public class SceneChanger : MonoBehaviour
 
     }
 
-    void OnTriggerEntsser(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //Only head has camera
         if (other.gameObject.GetComponent<Camera>())
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneIncrementAmount);
+            int sceneIndex = (SceneManager.GetActiveScene().buildIndex + sceneIncrementAmount + SceneManager.sceneCountInBuildSettings) % SceneManager.sceneCountInBuildSettings;
+            print(sceneIndex);
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }
