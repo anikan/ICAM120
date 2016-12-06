@@ -24,7 +24,6 @@ public class SceneChanger : MonoBehaviour
         if (other.gameObject.GetComponent<Camera>())
         {
             int sceneIndex = (SceneManager.GetActiveScene().buildIndex + sceneIncrementAmount + SceneManager.sceneCountInBuildSettings) % SceneManager.sceneCountInBuildSettings;
-            print(sceneIndex);
             SceneManager.LoadScene(sceneIndex);
         }
     }
